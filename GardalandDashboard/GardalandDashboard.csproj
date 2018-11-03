@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\images\BlueTornado.png" />
+    <None Include="wwwroot\images\ColoradoBoat.png" />
+    <None Include="wwwroot\images\FugaDaAtlantide.png" />
+    <None Include="wwwroot\images\JungleRapids.png" />
+    <None Include="wwwroot\images\KungFuPandaMaster.png" />
+    <None Include="wwwroot\images\MagicHouse.png" />
+    <None Include="wwwroot\images\Mammut.png" />
+    <None Include="wwwroot\images\Oblivion.png" />
+    <None Include="wwwroot\images\OrtobrucoTour.png" />
+    <None Include="wwwroot\images\Ramses.png" />
+    <None Include="wwwroot\images\Raptor.png" />
+    <None Include="wwwroot\images\Shaman.png" />
+    <None Include="wwwroot\images\Volaplano.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\GardalandDashboard.Business\GardalandDashboard.Business.csproj" />
+  </ItemGroup>
+
+</Project>

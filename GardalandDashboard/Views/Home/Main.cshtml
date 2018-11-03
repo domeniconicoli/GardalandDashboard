@@ -1,0 +1,60 @@
+﻿@{
+//ViewData["Title"] = "Home Page";
+    @model GardalandDashboard.Business.API.AttractionTimeResponseModel
+}
+
+<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="6000">
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+    
+    <br />
+    
+    <div class="row">
+        @foreach (var attraction in Model.Attractions.Attraction)
+        {
+            @if (attraction.Name != "(null)")
+            {
+
+                <div class="col-md-4">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <img class="panel-title" src="@attraction.ImagePath" width="330" alt="attraction.Name">
+                        </div>
+                        <div class="panel-body">
+                            <h2>@attraction.Name</h2>
+                            <p>Waiting time: @attraction.DisplayWaitTime</p>
+                        </div>
+                    </div>
+
+                </div>
+
+            }
+        }
+
+     </div>
+
+        @*@foreach (var attraction in Model.Attractions.Attraction)
+        {
+            @if (attraction.Name != null)
+            {
+                <div class="carousel-inner">
+                    <div class="item active">
+                        <img src="@attraction.ImagePath" alt="ASP.NET" class="img-responsive" />
+                        <div class="carousel-caption" role="option">
+                            <p>
+                                @attraction.Name
+                            </p>
+                            <p>
+                                @attraction.DisplayWaitTime
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            }
+
+        }*@
+
+    </div>
