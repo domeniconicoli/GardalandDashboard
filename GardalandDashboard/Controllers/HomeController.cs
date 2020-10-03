@@ -1,19 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using GardalandDashboard.Models;
 using Microsoft.AspNetCore.Mvc;
-using GardalandDashboard.Models;
-using System.Net.Http;
-using Newtonsoft.Json;
 using Microsoft.Extensions.Configuration;
+using System.Diagnostics;
 
 namespace GardalandDashboard.Controllers
 {
     public class HomeController : Controller
     {
-        private IConfiguration _configuration;
+        private readonly IConfiguration _configuration;
 
         public HomeController(IConfiguration Configuration)
         {
@@ -22,8 +16,7 @@ namespace GardalandDashboard.Controllers
 
         public IActionResult Main()
         {
-
-            var responseAttractionsWaitTime = GardalandDashboard.Business.API.CallFeed.GetAttractions(
+            var responseAttractionsWaitTime = Business.API.CallFeed.GetAttractions(
                 _configuration.GetSection("User-Agent").Value,
                 _configuration.GetSection("signature").Value,
                 _configuration.GetSection("apiURL").Value);

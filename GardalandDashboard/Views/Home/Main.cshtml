@@ -1,7 +1,7 @@
 ﻿@{
-//ViewData["Title"] = "Home Page";
     @model GardalandDashboard.Business.API.AttractionTimeResponseModel
-}
+    @using GardalandDashboard.Extensions;
+}   
 
 <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="6000">
     <ol class="carousel-indicators">
@@ -9,52 +9,32 @@
         <li data-target="#myCarousel" data-slide-to="1"></li>
         <li data-target="#myCarousel" data-slide-to="2"></li>
     </ol>
-    
+
     <br />
-    
+
     <div class="row">
         @foreach (var attraction in Model.Attractions.Attraction)
         {
             @if (attraction.Name != "(null)")
             {
-
                 <div class="col-md-4">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <img class="panel-title" src="@attraction.ImagePath" width="330" alt="attraction.Name">
+                            <object class="panel-title" data="@attraction.ImagePath" width="330" alt="attraction.Name" type="image/png">
+                                <img src="~/images/NotPresent.png" width="330" alt="Image placeholder when the corresponding header image is not present" />
+                            </object>
+
                         </div>
                         <div class="panel-body">
-                            <h2>@attraction.Name</h2>
+                            <h2>@attraction.Name.SafeSubstringWithEllipsize(0, 17)</h2>
                             <p>Waiting time: @attraction.DisplayWaitTime</p>
                         </div>
                     </div>
 
                 </div>
-
             }
         }
 
-     </div>
-
-        @*@foreach (var attraction in Model.Attractions.Attraction)
-        {
-            @if (attraction.Name != null)
-            {
-                <div class="carousel-inner">
-                    <div class="item active">
-                        <img src="@attraction.ImagePath" alt="ASP.NET" class="img-responsive" />
-                        <div class="carousel-caption" role="option">
-                            <p>
-                                @attraction.Name
-                            </p>
-                            <p>
-                                @attraction.DisplayWaitTime
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            }
-
-        }*@
-
     </div>
+
+</div>
