@@ -6,12 +6,10 @@ namespace GardalandDashboard.Business.API
 {
     public class CallFeed
     {
-
-        public static API.AttractionTimeResponseModel GetAttractions(string userAgent, string signature, string apiURL)
+        public static AttractionTimeResponseModel GetAttractions(string userAgent, string signature, string apiURL)
         {
             using (var http = new HttpClient())
             {
-
                 // add the user-agent as header
                 http.DefaultRequestHeaders.Add("User-Agent", userAgent);
 
